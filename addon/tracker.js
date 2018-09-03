@@ -441,7 +441,11 @@ export default class Tracker {
         }
       } else {
         relations.push(descriptor.key);
-        relationsObserver.push(descriptor.key + '.content');
+        if (descriptor.options.async) {
+          relationsObserver.push(descriptor.key + '.content');
+        } else {
+          relationsObserver.push(descriptor.key);
+        }
       }
     });
 
